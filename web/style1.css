@@ -1,0 +1,218 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('img/1024px-Nha_dieu_hanh_144_Xuan_Thuy_26Jan2005-01s.jpg'); 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; 
+}
+
+header {
+    position: fixed; 
+    top: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; 
+    padding: 10px 5%; 
+    background-color:white; 
+    border-radius: 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    width: 170px; 
+    height: auto;
+}
+
+.support {
+    font-size: 32px;
+    color: #008000;
+    margin-left: 20px;
+}
+
+.login-box {
+    background-color:white; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px; 
+    width: 90%; 
+    max-width: 600px; 
+}
+
+.login-box h2 {
+    text-align: center;
+    color: #008000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-box {
+    margin: 10px 0;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    color: #008000;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #008000;
+}
+
+.submit-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #006400;
+}
+.container {
+    display: flex;
+    flex-direction: row; 
+}
+
+
+.menu {
+    background-color: white;
+    padding: 20px;
+    width: 250px;
+    position: fixed;
+    top: 91px; 
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+
+.menu-items button {
+    margin-bottom: 10px;
+    width: 100%; 
+    flex-grow: 1; 
+}
+/* Các điều chỉnh cho trang thời khóa biểu */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); 
+}
+
+.schedule-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    height: 80vh; 
+    margin-left: 240px; 
+}
+
+h2 {
+    color: #008000;
+}
+
+.schedule {
+    margin-top: 20px;
+   
+}
+
+.schedule-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.schedule-row:last-child {
+    border-bottom: none;
+}
+
+span {
+    padding: 5px;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-top: -350px; 
+    width:50%;
+    margin-left: 230px;
+}
+
+#search-input {
+    flex-grow: 2; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #006400;
+}
+/* CSS cho danh sách lớp */
