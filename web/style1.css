@@ -99,19 +99,20 @@ a {
 
 button {
     padding: 10px 20px;
-    background-color: #008000;
-    color: #fff;
+    background-color: whitesmoke;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #006400;
+    background-color: green;
+    color:white;
 }
 .container {
     display: flex;
     flex-direction: row; 
+
 }
 
 
@@ -134,6 +135,33 @@ button:hover {
     width: 100%; 
     flex-grow: 1; 
 }
+
+/* Tùy chỉnh biểu tượng */
+.account-icon {
+    font-size: 24px; /* Đặt kích thước biểu tượng theo ý muốn */
+    margin-right: 20px; /* Khoảng cách giữa biểu tượng và văn bản */
+}
+
+/* Tùy chỉnh nút tài khoản */
+.account-button {
+    display: flex;
+    align-items: center;
+    background-color: whitesmoke; /* Màu nền ban đầu của nút */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Hiệu ứng màu nền thay đổi */
+    cursor: pointer;
+}
+
+/* Tùy chỉnh nút tài khoản khi hover */
+.account-button:hover {
+    background-color: green; /* Màu nền khi hover */
+    color: white; /* Màu chữ khi hover */
+}
+
+
+
+
 /* Các điều chỉnh cho trang thời khóa biểu */
 .content {
     display: flex;
@@ -150,8 +178,10 @@ button:hover {
     width: 90%;
     max-width: 800px;
     text-align: center;
-    height: 80vh; 
+    height: 70vh; 
     margin-left: 240px; 
+    display:none;
+    margin-top: 10px;
 }
 
 h2 {
@@ -216,3 +246,45 @@ span {
     background-color: #006400;
 }
 /* CSS cho danh sách lớp */
+/* Định dạng danh sách lớp */
+.class-list {
+    width: 50%; /* Chiều rộng của danh sách lớp bằng với thanh tìm kiếm */
+    margin-top: 20px; /* Khoảng cách phía trên danh sách lớp */
+    margin-left: 230px;
+}
+
+/* Định dạng bảng danh sách lớp */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    display:none;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+/* Định dạng tiêu đề "Lịch thi" */
+.exam-schedule h2 {
+    margin-left:350px; /* Căn giữa tiêu đề */
+    font-size: 30px; /* Kích thước chữ lớn hơn */
+    color: green; /* Màu chữ trắng */
+    margin-top:-230px;
+}
+.semester-select {
+   margin-left:180px;
+}
+.semester-select1 {
+    margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
+    margin-top: 30px; /* Dịch chuyển thanh lựa chọn xuống dưới */
+}
+
+
+
+
+
