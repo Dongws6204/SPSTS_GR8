@@ -22,7 +22,7 @@
     <div class="container">
         <div class="menu">
             <div class="menu-items">
-                <button>Thời khóa biểu</button>
+                <button onclick="window.location.href='schedule.php'">Thời khóa biểu</button>
                 <button>Lớp học</button>
                 <button>Lịch thi</button>
                 <button>Kết quả học tập</button>
