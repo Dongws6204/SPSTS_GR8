@@ -216,73 +216,18 @@ h2 {
 span {
     padding: 5px;
 }
-.search-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    margin-top: -350px; 
-    width:50%;
-    margin-left: 230px;
-}
-
-#search-input {
-    flex-grow: 2; 
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-#search-button {
-    padding: 10px 20px;
-    background-color: #008000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#search-button:hover {
-    background-color: #006400;
-}
-/* CSS cho danh sách lớp */
-/* Định dạng danh sách lớp */
-.class-list {
-    width: 50%; /* Chiều rộng của danh sách lớp bằng với thanh tìm kiếm */
-    margin-top: 20px; /* Khoảng cách phía trên danh sách lớp */
-    margin-left: 230px;
-}
-
-/* Định dạng bảng danh sách lớp */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    display:none;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-/* Định dạng tiêu đề "Lịch thi" */
-.exam-schedule h2 {
-    margin-left:350px; /* Căn giữa tiêu đề */
-    font-size: 30px; /* Kích thước chữ lớn hơn */
-    color: green; /* Màu chữ trắng */
-    margin-top:-230px;
-}
-.semester-select {
-   margin-left:180px;
-}
 .semester-select1 {
     margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
     margin-top: 30px; /* Dịch chuyển thanh lựa chọn xuống dưới */
 }
+/*exam_schedule*/
+
+
+.semester-select {
+    margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
+    margin-top: 50px; /* Dịch chuyển thanh lựa chọn xuống dưới */
+}
+
 
 
 
