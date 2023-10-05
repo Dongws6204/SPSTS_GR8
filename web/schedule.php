@@ -1,19 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "quan_ly_dao_tao";
-
-// Tạo kết nối
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM thoi_khoa_bieu";
-$result = $conn->query($sql);
-?>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -44,10 +28,20 @@ $result = $conn->query($sql);
                 <button>Kết quả học tập</button>
                 <button>Cẩm nang môn học</button>
                 <button>Góp ý</button>
-                <button>Tài khoản</button>
-                <button>Đăng xuất</button>
+                <div class="account-button">
+                    <ion-icon name="person-circle-outline" class="account-icon"></ion-icon>
+                    <span class="account-text">Tài khoản</span>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="semester-select1">
+        <label for="semester">Chọn học kỳ:</label>
+        <select id="semester">
+            <option value="hoc-ky-1">Học kỳ 1 năm học 2023-2024</option>
+            <option value="hoc-ky-2">Học kỳ 2 năm học 2023-2024</option>
+        </select>
+        <button id="view-schedule-button">Xem TKB</button>
     </div>
     <div class="content">
         <div class="schedule-box">
@@ -63,29 +57,39 @@ $result = $conn->query($sql);
                         <span>Tên giáo viên</span>
                         <span>Ghi chú</span>
                     </div>
-                       <?php
-                        if ($result->num_rows > 0) {
-                            while($row = $result->fetch_assoc()) {
-                                echo "<div class='schedule-row'>";
-                                echo "<span>" . $row["thu"] . "</span>";
-                                echo "<span>" . $row["mon_hoc"] . "</span>";
-                                echo "<span>" . $row["thoi_gian"] . "</span>";
-                                echo "<span>" . $row["dia_diem"] . "</span>";
-                                echo "<span>" . $row["lop"] . "</span>";
-                                echo "<span>" . $row["ten_giao_vien"] . "</span>";
-                                echo "<span>" . $row["ghi_chu"] . "</span>";
-                                echo "</div>";
-                            }
-                        } else {
-                            echo "0 kết quả";
-                        }
-
-                        $conn->close();
-                       ?>
-                    <!-- Thêm các hàng thời khóa biểu khác tại đây -->
-                </div>
+                    <div id="schedule-content">
             </div>
         </div>
     </div>
+    <script>
+        const viewScheduleButton = document.getElementById('view-schedule-button');
+        const scheduleBox = document.querySelector('.schedule-box');
+        const semesterSelect = document.getElementById('semester');
+    
+        viewScheduleButton.addEventListener('click', () => {
+            const selectedSemester = semesterSelect.value;
+            if (selectedSemester === 'hoc-ky-1') {
+                scheduleBox.style.display = 'block';
+            
+                // Thêm logic lấy dữ liệu thời khóa biểu cho học kỳ 1 và cập nhật nội dung ở đây (nếu cần)
+                const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById('schedule-content').innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "get_schedule.php?semester=hoc-ky-1", true);
+                xhttp.send();
+                //
+
+
+            } else if (selectedSemester === 'hoc-ky-2') {
+                scheduleBox.style.display = 'none';
+                alert('Dữ liệu chưa được cập nhật');
+            }
+        });
+    </script>    
+    <script script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"> </script> 
+    <script script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js"> </script>   
 </body>
 </html>
