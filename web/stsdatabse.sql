@@ -30,7 +30,7 @@ CREATE TABLE thoi_khoa_bieu (
     hoc_ky varchar(50)
 );
 
-INSERT INTO thoi_khoa_bieu (thu, mon_hoc, thoi_gian, dia_diem, lop, ten_giao_vien, ghi_chu, hoc_ki)
+INSERT INTO thoi_khoa_bieu (thu, mon_hoc, thoi_gian, dia_diem, lop, ten_giao_vien, ghi_chu, hoc_ky)
 VALUES 
     ('Thứ 2', 'Toán học', '8:00 - 10:00', 'Phòng A101', 'Lớp 10A1', 'Nguyễn Văn A', 'Ghi chú 1', 'hoc-ky-1'),
     ('Thứ 3', 'Văn học', '10:00 - 12:00', 'Phòng B202', 'Lớp 10A2', 'Nguyễn Thị B', 'Ghi chú 2', 'hoc-ky-1'),
