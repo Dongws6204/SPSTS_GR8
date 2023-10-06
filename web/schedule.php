@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "1616lclc";
+$password = "";
 $dbname = "quan_ly_dao_tao";
 
 // Tạo kết nối

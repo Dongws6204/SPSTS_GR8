@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -33,5 +37,9 @@
             </div>
         </div>
     </div>
+    <?php
+        // Ngắt kết nối database
+        $connect = null;
+    ?>
 </body>
 </html>

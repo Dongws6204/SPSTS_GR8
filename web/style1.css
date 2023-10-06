@@ -227,6 +227,14 @@ span {
     margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
     margin-top: 50px; /* Dịch chuyển thanh lựa chọn xuống dưới */
 }
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 
 
 
