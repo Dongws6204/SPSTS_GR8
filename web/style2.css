@@ -1,0 +1,138 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-top: -350px; 
+    width:50%;
+    margin-left: 230px;
+}
+
+#search-input {
+    flex-grow: 2; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #006400;
+}
+/* CSS cho danh sách lớp */
+/* Định dạng danh sách lớp */
+/* Trong tệp CSS của bạn hoặc trong style1.css hoặc style2.css */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left:100px;
+    display:none;
+
+ 
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+.semester-select2 {
+    margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
+    margin-top: -450px; /* Dịch chuyển thanh lựa chọn xuống dưới */
+}
+
+/* Tùy chỉnh kiểu cho các cột cụ thể nếu cần */
+/* Ví dụ: Đặt kiểu cho cột "Ghi chú" */
+td:nth-child(5) {
+    font-style: italic;
+    color: #888;
+}
+#result-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 150px;
+    margin-left: 250px;
+    font-family: Arial, sans-serif;
+}
+
+#result-table th,
+#result-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#result-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Định dạng cho các dòng chẵn và lẻ trong bảng */
+#result-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Định dạng khi di chuột qua một hàng */
+#result-table tbody tr:hover {
+    background-color: #ddd;
+}
+#not-updated-message {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: black; /* Màu chữ đỏ (có thể thay đổi màu theo ý muốn) */
+}
+
+#result-table.hide {
+    display: none; /* Ẩn bảng kết quả học tập khi dữ liệu chưa được cập nhật */
+}
+/* CSS cho Bảng Cẩm nang môn học */
+.course-handbook {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.course-handbook table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.course-handbook th,
+.course-handbook td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.course-handbook th {
+    background-color: #f2f2f2;
+}
+
+/* Tùy chỉnh màu sắc, font, và các thuộc tính khác cho bảng theo mong muốn */
+
+
