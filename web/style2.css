@@ -105,34 +105,29 @@ td:nth-child(5) {
     font-weight: bold;
     color: black; /* Màu chữ đỏ (có thể thay đổi màu theo ý muốn) */
 }
-
 #result-table.hide {
     display: none; /* Ẩn bảng kết quả học tập khi dữ liệu chưa được cập nhật */
 }
-/* CSS cho Bảng Cẩm nang môn học */
-.course-handbook {
-    margin-top: 20px;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.course-handbook table {
+ /* CSS cho bảng course-table */
+#course-table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #ddd;
+    margin-left: 450px; /* Để đưa bảng vào giữa màn hình */
+    max-width: 800px; /* Điều chỉnh chiều rộng tối đa của bảng */
+    display:block;
 }
 
-.course-handbook th,
-.course-handbook td {
-    border: 1px solid #ddd;
+#course-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#course-table th, #course-table td {
+    border: 1px solid #ccc;
     padding: 8px;
     text-align: center;
 }
 
-.course-handbook th {
-    background-color: #f2f2f2;
+#course-table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
 }
-
-/* Tùy chỉnh màu sắc, font, và các thuộc tính khác cho bảng theo mong muốn */
-
-
