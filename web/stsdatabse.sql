@@ -37,3 +37,20 @@ VALUES
     ('Thứ 4', 'Lý học', '8:00 - 10:00', 'Phòng C303', 'Lớp 10A3', 'Trần Văn C', 'Ghi chú 3', 'hoc-ky-1'),
     ('Thứ 5', 'Hóa học', '10:00 - 12:00', 'Phòng D404', 'Lớp 10A4', 'Phạm Thị D', 'Ghi chú 4', 'hoc-ky-2'),
     ('Thứ 6', 'Sinh học', '8:00 - 10:00', 'Phòng E505', 'Lớp 10A5', 'Lê Văn E', 'Ghi chú 5', 'hoc-ky-2');
+
+
+CREATE TABLE ket_qua_hoc_tap (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ten_mon_hoc VARCHAR(255),
+    ma_hoc_phan VARCHAR(50),
+    so_TC INT,
+    diem_TK FLOAT,
+    diem_quy_doi FLOAT
+);
+
+
+INSERT INTO ket_qua_hoc_tap (ten_mon_hoc, ma_hoc_phan, so_TC, diem_TK, diem_quy_doi)
+VALUES 
+    ('Môn 1', 'MH001', 3, 8.5, 3.5),
+    ('Môn 2', 'MH002', 4, 7.2, 3.0),
+    ('Môn 3', 'MH003', 2, 9.0, 4.0);

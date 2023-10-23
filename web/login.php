@@ -8,17 +8,9 @@
 </head>
 <body>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "stsdatabase";
 
-// Tạo kết nối
-$conn = new mysqli($servername, $username, $password, $dbname);
+require_once 'connect.php';
 
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         $username = $_POST["username"];

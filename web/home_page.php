@@ -29,7 +29,7 @@
                 <button onclick="window.location.href='schedule.php'">Thời khóa biểu</button>
                 <button>Lớp học</button>
                 <button>Lịch thi</button>
-                <button>Kết quả học tập</button>
+                <button onclick ="window.location.href='result.php'" >Kết quả học tập</button>
                 <button>Cẩm nang môn học</button>
                 <button>Góp ý</button>
                 <button>Tài khoản</button>
