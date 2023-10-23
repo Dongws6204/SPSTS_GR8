@@ -23,11 +23,11 @@
     <div class="container">
     <div class="menu">
             <div class="menu-items">
-                <button>Thời khóa biểu</button>
+                <button onclick="window.location.href='schedule.php'">Thời khóa biểu</button>
                 <button>Lớp học</button>
-                <button>Lịch thi</button>
+                <button onclick="window.location.href='exam_schedule.php'">Lịch thi</button>
                 <button>Kết quả học tập</button>
-                <button>Cẩm nang môn học</button>
+                <button onclick="window.location.href='course.handbook.php'">Cẩm nang môn học</button>
                 <button>Góp ý</button>
                 <div class="account-button">
                     <ion-icon name="person-circle-outline" class="account-icon"></ion-icon>
