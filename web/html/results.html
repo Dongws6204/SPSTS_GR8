@@ -46,79 +46,44 @@
         </select>
         <button id="view-result-button">Xem Kết Quả Học Tập</button>
     </div>
-
-    <!-- Bảng kết quả học tập -->
-    <div id="result-container">
-        <table id="result-table">
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Tên môn học</th>
-                    <th>Mã học phần</th>
-                    <th>Số TC</th>
-                    <th>Điểm TK</th>
-                    <th>Điểm quy đổi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Dữ liệu kết quả học tập sẽ được thêm ở đây -->
-            </tbody>
-        </table>
-    
-        <!-- Thông báo khi dữ liệu chưa được cập nhật -->
-        <p id="not-updated-message">Dữ liệu chưa được cập nhật.</p>
+    <div class="content">
+        <div class="result_schedule-box">
+            <h2>kết quả học tập</h2>
+            <div class="result_schedule">
+                <div class="result_schedule-item">
+                    <div class="result_schedule-header">
+                        <span>STT</span>
+                        <span>Tên môn học</span>
+                        <span>Mã học phần</span>
+                        <span>Số TC</span>
+                        <span>Điểm TK</span>
+                        <span>Điểm quy đổi</span>
+                        <span>Ghi chú</span>
+                    </div>
+                    <div class="result_schedule-row" id="result_schedule-content">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
     <script>
+        const viewScheduleButton = document.getElementById('view-result-button');
+        const resultscheduleBox = document.querySelector('.result_schedule-box');
         const semesterSelect = document.getElementById('semester');
-        const viewResultButton = document.getElementById('view-result-button');
-        const resultContainer = document.getElementById('result-container');
-        const resultTable = document.getElementById('result-table');
-        const notUpdatedMessage = document.getElementById('not-updated-message');
-
-       
-        viewResultButton.addEventListener('click', () => {
+    
+        viewScheduleButton.addEventListener('click', () => {
             const selectedSemester = semesterSelect.value;
-
-            // Xem kết quả học tập cho học kỳ 2 năm học 2022-2023
             if (selectedSemester === 'hoc-ky-2-1') {
-                // Hiển thị bảng kết quả học tập và thông báo khi cần
-                resultTable.style.display = 'block';
-
-                // Thêm dữ liệu kết quả học tập ở đây (có thể lấy từ server)
-                // Ví dụ:
-                const sampleData = [
-                    // Thêm dữ liệu cho các môn học khác
-                ];
-
-                // Xóa dữ liệu cũ trong bảng
-                const tbody = resultTable.querySelector('tbody');
-                tbody.innerHTML = '';
-
-                // Thêm dữ liệu mới vào bảng
-                sampleData.forEach((item, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${index + 1}</td>
-                        <td>${item.subject}</td>
-                        <td>${item.maHP}</td>
-                        <td>${item.soTC}</td>
-                        <td>${item.diemTK}</td>
-                        <td>${item.diemQuyDoi}</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-
-                // Ẩn thông báo khi có dữ liệu
-                notUpdatedMessage.style.display = 'none';
-            } else {
-                // Hiển thị thông báo khi dữ liệu chưa được cập nhật
-                resultTable.style.display = 'none';
-                notUpdatedMessage.style.display = 'block';
+               resultscheduleBox.style.display = 'block';
+                // Thêm logic lấy dữ liệu thời khóa biểu cho học kỳ 1 và cập nhật nội dung ở đây (nếu cần)
+            } else  {
+                resultscheduleBox.style.display = 'none';
+                alert('Dữ liệu chưa được cập nhật');
             }
         });
-    </script>
-        
+    </script> 
+
+    
     <script script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"> </script> 
     <script script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js"> </script>   
 </body>
