@@ -60,74 +60,119 @@ tr:nth-child(odd) {
 }
 .semester-select2 {
     margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
-    margin-top: -450px; /* Dịch chuyển thanh lựa chọn xuống dưới */
+    margin-top:40px;
 }
 
 /* Tùy chỉnh kiểu cho các cột cụ thể nếu cần */
 /* Ví dụ: Đặt kiểu cho cột "Ghi chú" */
-td:nth-child(5) {
-    font-style: italic;
-    color: #888;
-}
-#result-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 150px;
-    margin-left: 250px;
-    font-family: Arial, sans-serif;
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); 
 }
 
-#result-table th,
-#result-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+.result_schedule-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
     text-align: center;
+    height: auto; 
+    margin-left: 240px; 
+    display:none;
+    margin-top: -270px;
 }
 
-#result-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
+h2 {
+    color: #008000;
 }
 
-/* Định dạng cho các dòng chẵn và lẻ trong bảng */
-#result-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Định dạng khi di chuột qua một hàng */
-#result-table tbody tr:hover {
-    background-color: #ddd;
-}
-#not-updated-message {
-    display: none;
+.result_schedule {
     margin-top: 20px;
-    text-align: center;
-    font-weight: bold;
-    color: black; /* Màu chữ đỏ (có thể thay đổi màu theo ý muốn) */
-}
-#result-table.hide {
-    display: none; /* Ẩn bảng kết quả học tập khi dữ liệu chưa được cập nhật */
-}
- /* CSS cho bảng course-table */
-#course-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-left: 450px; /* Để đưa bảng vào giữa màn hình */
-    max-width: 800px; /* Điều chỉnh chiều rộng tối đa của bảng */
-    display:block;
+   
 }
 
-#course-table th {
+.result_schedule-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
     background-color: #f2f2f2;
-    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-#course-table th, #course-table td {
-    border: 1px solid #ccc;
-    padding: 8px;
+.result_schedule-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+   
+}
+
+.result_schedule-row:last-child {
+    border-bottom: none;
+}
+
+.result_schedule-row span {
+    padding: 5px;
+    overflow-wrap: break-word;
+}
+
+ /* CSS cho bảng course-table */
+ .content1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); 
+}
+
+.course_handbook-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
     text-align: center;
+    height: auto; 
+    margin-left: 240px; 
+    display:block;
+    margin-top: -270px;
 }
 
-#course-table tbody tr:nth-child(even) {
-    background-color: #f5f5f5;
+h2 {
+    color: #008000;
+}
+
+.course_handbook {
+    margin-top: 20px;
+   
+}
+
+.course_handbook-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.course_handbook-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.course_handbook-row:last-child {
+    border-bottom: none;
+}
+
+.course_handbook-row span {
+    padding: 5px;
+    overflow-wrap: break-word;
 }
