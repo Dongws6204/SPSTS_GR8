@@ -1,15 +1,15 @@
-<?php
+<?php   
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "stsdatabase";
 
-// Tạo kết nối
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Create connection
+$conn  = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
+// Check connection 
+
+if (!$conn) {
+    die ("Connection failed: " . mysqli_connect_error());
 }
-
-return $conn;
 ?>
