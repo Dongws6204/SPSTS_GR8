@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+    <title>Đăng xuất</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/Logo-VNU.png" alt="Logo VNU">
+        </div>
+        <div class="support">
+            <p>Hỗ trợ sinh viên</p>
+        </div>
+        <div class="logo">
+            <img src="img/Logo-UET.png" alt="Logo UET">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="menu">
+            <div class="menu-items">
+                <button>Thời khóa biểu</button>
+                <button>Lớp học</button>
+                <button>Lịch thi</button>
+                <button>Kết quả học tập</button>
+                <button>Cẩm nang môn học</button>
+                <div class="account-button" id="accountButton">
+                    <ion-icon name="person-circle-outline" class="account-icon"></ion-icon>
+                    <span class="account-text">Tài khoản</span>
+                </div>
+                <div class="account-buttons" id="accountButtons">
+                    <button id="logoutButton">Đăng xuất</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const accountButton = document.getElementById("accountButton");
+        const accountButtons = document.getElementById("accountButtons");
+        const logoutButton = document.getElementById("logoutButton");
+
+        accountButton.addEventListener("click", () => {
+            accountButtons.style.display = "block";
+        });
+
+        logoutButton.addEventListener("click", () => {
+            // Điều hướng đến trang Đăng xuất
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>
