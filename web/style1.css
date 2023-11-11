@@ -177,10 +177,11 @@ button:hover {
     width: 90%;
     max-width: 800px;
     text-align: center;
-    height: auto; 
+    height: 400px; 
+    overflow-y: scroll;
     margin-left: 240px; 
     display:none;
-    margin-top: -270px;
+    margin-top: 0px;
     
 }
 
