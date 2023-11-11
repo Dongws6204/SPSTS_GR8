@@ -4,6 +4,7 @@
 }
 
 /* Tùy chỉnh kiểu cho các cột cụ thể nếu cần */
+/* Ví dụ: Đặt kiểu cho cột "Ghi chú" */
 .content {
     display: flex;
     justify-content: center;
@@ -19,10 +20,11 @@
     width: 90%;
     max-width: 800px;
     text-align: center;
-    height: auto; 
+    height: 400px; 
+    overflow-y: scroll;
     margin-left: 240px; 
     display:none;
-    margin-top: -270px;
+    margin-top: 0px;
 }
 
 h2 {
@@ -76,10 +78,11 @@ h2 {
     width: 90%;
     max-width: 800px;
     text-align: center;
-    height: auto; 
+    height: 400px; 
+    overflow-y: scroll;
     margin-left: 240px; 
     display:block;
-    margin-top: -270px;
+    margin-top: 0px;
 }
 
 h2 {
