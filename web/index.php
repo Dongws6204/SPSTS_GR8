@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST["password"];
         
         // Thực hiện truy vấn kiểm tra đăng nhập
-        $sql = "SELECT * FROM users WHERE student_id = '$username' AND password = '$password'";
+        $sql = "SELECT * FROM users WHERE student_id = '$username' AND student_id = '$password'";
         $result = mysqli_query($conn, $sql);
 
         if ($result && mysqli_num_rows($result) > 0) {

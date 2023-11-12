@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-    <div class="logo">
+        <div class="logo">
             <img src="img/Logo-VNU.png">
         </div>
         <div class="support">
@@ -18,17 +18,16 @@
         <div class="logo">
             <img src="img/Logo-UET.png">
         </div>
-
     </header>
     <div class="container">
-    <div class="menu">
+        <div class="menu">
             <div class="menu-items">
                 <button onclick="window.location.href='schedule.php'">Thời khóa biểu</button>
                 <button>Lớp học</button>
                 <button onclick="window.location.href='exam_schedule.php'">Lịch thi</button>
-                <button>Kết quả học tập</button>
-                <button onclick="window.location.href='course.handbook.php'">Cẩm nang môn học</button>
-                <button>Góp ý</button>
+                <button> Kết quả học tập</button>
+                <button onclick="window.location.href='course-handbook.php'">Cẩm nang môn học</button>
+                <button onclick="window.location.href='feed-back.php'">Góp ý</button>
                 <div class="account-button">
                     <ion-icon name="person-circle-outline" class="account-icon"></ion-icon>
                     <span class="account-text">Tài khoản</span>
@@ -49,85 +48,52 @@
     </div>
 
     <!-- Bảng kết quả học tập -->
-    <div id="result-container">
-        <table id="result-table">
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Tên môn học</th>
-                    <th>Mã học phần</th>
-                    <th>Số TC</th>
-                    <th>Điểm TK</th>
-                    <th>Điểm quy đổi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                
-                // Kết nối vào cơ sở dữ liệu của bạn ở đây
-                require_once 'connect.php';
-                // Lấy kết quả thi từ cơ sở dữ liệu
-                $sql = "SELECT * FROM ket_qua_hoc_tap";
-                $result = $conn->query($sql);
-                
-                if ($result->num_rows > 0) {
-                    $data = $result->fetch_all(MYSQLI_ASSOC);
-                } else {
-                    $data = [];
-                }
-                $conn->close();
-                ?>
-            </tbody>
-        </table>
-
-       <!-- Thông báo khi dữ liệu chưa được cập nhật -->
-       <p id="not-updated-message">Dữ liệu chưa được cập nhật.</p>
+    <div class="content">
+        <div class="result-box">
+            <h2>Kết quả</h2>
+            <div class="result">
+                <div class="result-item">
+                    <div class="result-header">
+                        <span>STT</span>
+                        <span>Tên môn học</span>
+                        <span>Mã học phần</span>
+                        <span>Số TC</span>
+                        <span>Điểm TK</span>
+                        <span>Điểm quy đổi</span>
+                    </div>
+                     <div id="result-content">    
+            </div>
+        </div>
     </div>
 
     <script>
-        const semesterSelect = document.getElementById('semester');
-        const viewResultButton = document.getElementById('view-result-button');
-        const resultContainer = document.getElementById('result-container');
-        const resultTable = document.getElementById('result-table');
-        const notUpdatedMessage = document.getElementById('not-updated-message');
-
        
+        const viewResultButton = document.getElementById('view-result-button');
+        const resultBox = document.querySelector('.result-box');
+        const semesterSelect = document.getElementById('semester');
+   
+
         viewResultButton.addEventListener('click', () => {
             const selectedSemester = semesterSelect.value;
 
             // Xem kết quả học tập cho học kỳ 2 năm học 2022-2023
             if (selectedSemester === 'hoc-ky-2-1') {
                 // Hiển thị bảng kết quả học tập và thông báo khi cần
-                resultTable.style.display = 'block';
+                resultBox.style.display = 'block';
 
-                // Thêm dữ liệu kết quả học tập ở đây (có thể lấy từ server)
-                // Ví dụ:
-                const sampleData = <?php echo json_encode($data); ?>;
-
-                // Xóa dữ liệu cũ trong bảng
-                const tbody = resultTable.querySelector('tbody');
-                tbody.innerHTML = '';
-
-                // Thêm dữ liệu mới vào bảng
-                sampleData.forEach((item, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${index + 1}</td>
-                        <td>${item.ten_mon_hoc}</td>
-                        <td>${item.ma_hoc_phan}</td>
-                        <td>${item.so_TC}</td>
-                        <td>${item.diem_TK}</td>
-                        <td>${item.diem_quy_doi}</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-
-                // Ẩn thông báo khi có dữ liệu
-                notUpdatedMessage.style.display = 'none';
+                // Thêm logic lấy dữ liệu kết quả học tập từ server
+                const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById('result-content').innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "get_result.php?semester=hoc-ky-2-1", true);
+                xhttp.send();
             } else {
                 // Hiển thị thông báo khi dữ liệu chưa được cập nhật
-                resultTable.style.display = 'none';
-                notUpdatedMessage.style.display = 'block';
+                resultBox.style.display = 'none';
+                alert('Dữ liệu chưa được cập nhật');
             }
         });
     </script>

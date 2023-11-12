@@ -26,8 +26,8 @@
                 <button>Lớp học</button>
                 <button onclick="window.location.href='exam_schedule.php'">Lịch thi</button>
                 <button onclick="window.location.href='result.php'" >Kết quả học tập</button>
-                <button onclick="window.location.href='course.handbook.php'">Cẩm nang môn học</button>
-                <button>Góp ý</button>
+                <button onclick="window.location.href='course-handbook.php'">Cẩm nang môn học</button>
+                <button onclick="window.location.href='feed-back.php'">Góp ý</button>
                 <div class="account-button">
                     <ion-icon name="person-circle-outline" class="account-icon"></ion-icon>
                     <span class="account-text">Tài khoản</span>
@@ -58,6 +58,7 @@
                         <span>Ghi chú</span>
                     </div>
                     <div id="schedule-content">
+
             </div>
         </div>
     </div>
@@ -77,6 +78,7 @@
                     if (this.readyState == 4 && this.status == 200) {
                         document.getElementById('schedule-content').innerHTML = this.responseText;
                     }
+
                 };
                 xhttp.open("GET", "get_schedule.php?semester=hoc-ky-1", true);
                 xhttp.send();

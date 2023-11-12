@@ -37,10 +37,10 @@
 
                 <button onclick="window.location.href='schedule.php'">Thời khóa biểu</button>
                 <button>Lớp học</button>
-                <button>Lịch thi</button>
-                <button onclick ="window.location.href='result.php'" >Kết quả học tập</button>
-                <button>Cẩm nang môn học</button>
-                <button>Góp ý</button>
+                <button onclick="window.location.href='exam_schedule.php'">Lịch thi</button>
+                <button onclick ="window.location.href='result.php'">Kết quả học tập</button>
+                <button onclick="window.location.href='course-handbook.php'">Cẩm nang môn học</button>
+                <button onclick="window.location.href='feed-back.php'">Góp ý</button>
                 <button onclick = "window.location.href = 'profile.php'">Tài khoản</button>
                 <button onclick = "window.location.href = 'logout.php'">Đăng xuất</button>
 

@@ -26,8 +26,8 @@
                 <button>Lớp học</button>
                 <button>Lịch thi</button>
                 <button onclick="window.location.href='result.php'">Kết quả học tập</button>
-                <button onclick="window.location.href='course.handbook.php'">Cẩm nang môn học</button>
-                <button>Góp ý</button>
+                <button onclick="window.location.href='course-handbook.php'">Cẩm nang môn học</button>
+                <button onclick="window.location.href='feed-back.php'">Góp ý</button>
                 <div class="account-button">
                     <ion-icon name="person-circle-outline" class="account-icon"></ion-icon>
                     <span class="account-text">Tài khoản</span>
@@ -56,11 +56,8 @@
                         <span>Số TC</span>
                         <span>Địa điểm</span>
                         <span>Hình thức thi</span>
-                    </div>
-                    <div class="schedule-row" id="schedule-content">
-                      
-                    </div>
                 </div>
+                <div id="schedule-content">
             </div>
         </div>
     </div>
@@ -74,6 +71,15 @@
             if (selectedSemester === 'hoc-ky-1') {
                 scheduleBox.style.display = 'block';
                 // Thêm logic lấy dữ liệu lịch thi cho học kỳ 1 và cập nhật nội dung ở đây (nếu cần)
+                const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById('schedule-content').innerHTML = this.responseText;
+                    }
+
+                };
+                xhttp.open("GET", "get_exam_schedule.php?semester=hoc-ky-1", true);
+                xhttp.send();
             } else if (selectedSemester === 'hoc-ky-2') {
                 scheduleBox.style.display = 'none';
                 alert('Dữ liệu chưa được cập nhật');

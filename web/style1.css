@@ -5,9 +5,9 @@
 }
 
 body {
-    background-image: url('img/1024px-Nha_dieu_hanh_144_Xuan_Thuy_26Jan2005-01s.jpg'); 
+    background-image: url('img/1024px-Nha_dieu_hanh_144_Xuan_Thuy_26Jan2005-01s.jpg');
     background-repeat: no-repeat;
-    background-attachment: fixed; 
+    background-attachment: fixed;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -16,24 +16,24 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    padding-top: 80px; 
+    padding-top: 80px;
 }
 
 header {
-    position: fixed; 
-    top: 0; 
+    position: fixed;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%; 
-    padding: 10px 5%; 
-    background-color:white; 
+    width: 100%;
+    padding: 10px 5%;
+    background-color: white;
     border-radius: 0;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
-    width: 170px; 
+    width: 170px;
     height: auto;
 }
 
@@ -44,13 +44,13 @@ header {
 }
 
 .login-box {
-    background-color:white; 
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 40px; 
-    width: 90%; 
-    max-width: 600px; 
+    margin-top: 40px;
+    width: 90%;
+    max-width: 600px;
 }
 
 .login-box h2 {
@@ -106,11 +106,12 @@ button {
 
 button:hover {
     background-color: green;
-    color:white;
+    color: white;
 }
+
 .container {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
 
 }
 
@@ -120,42 +121,48 @@ button:hover {
     padding: 20px;
     width: 250px;
     position: fixed;
-    top: 91px; 
+    top: 91px;
     left: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
 
 
 .menu-items button {
     margin-bottom: 10px;
-    width: 100%; 
-    flex-grow: 1; 
+    width: 100%;
+    flex-grow: 1;
 }
 
 /* Tùy chỉnh biểu tượng */
 .account-icon {
-    font-size: 24px; /* Đặt kích thước biểu tượng theo ý muốn */
-    margin-right: 20px; /* Khoảng cách giữa biểu tượng và văn bản */
+    font-size: 24px;
+    /* Đặt kích thước biểu tượng theo ý muốn */
+    margin-right: 20px;
+    /* Khoảng cách giữa biểu tượng và văn bản */
 }
 
 /* Tùy chỉnh nút tài khoản */
 .account-button {
     display: flex;
     align-items: center;
-    background-color: whitesmoke; /* Màu nền ban đầu của nút */
+    background-color: whitesmoke;
+    /* Màu nền ban đầu của nút */
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s; /* Hiệu ứng màu nền thay đổi */
+    transition: background-color 0.3s;
+    /* Hiệu ứng màu nền thay đổi */
     cursor: pointer;
 }
 
 /* Tùy chỉnh nút tài khoản khi hover */
 .account-button:hover {
-    background-color: green; /* Màu nền khi hover */
-    color: white; /* Màu chữ khi hover */
+    background-color: green;
+    /* Màu nền khi hover */
+    color: white;
+    /* Màu chữ khi hover */
 }
 
 
@@ -166,7 +173,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 80px); 
+    height: calc(100vh - 80px);
 }
 
 .schedule-box {
@@ -177,12 +184,11 @@ button:hover {
     width: 90%;
     max-width: 800px;
     text-align: center;
-    height: 400px; 
+    height: 400px;
     overflow-y: scroll;
-    margin-left: 240px; 
-    display:none;
+    margin-left: 240px;
+    display: none;
     margin-top: 0px;
-    
 }
 
 h2 {
@@ -191,7 +197,7 @@ h2 {
 
 .schedule {
     margin-top: 20px;
-   
+
 }
 
 .schedule-header {
@@ -209,7 +215,7 @@ h2 {
     padding: 10px;
     border-bottom: 1px solid #ccc;
     overflow-wrap: break-word;
- 
+
 }
 
 .schedule-row:last-child {
@@ -222,17 +228,63 @@ h2 {
 }
 
 .semester-select1 {
-    margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
-    margin-top: 30px; /* Dịch chuyển thanh lựa chọn xuống dưới */
+    margin-left: 180px;
+    /* Dịch chuyển thanh lựa chọn sang phải */
+    margin-top: 30px;
+    /* Dịch chuyển thanh lựa chọn xuống dưới */
 }
+
 /*exam_schedule*/
 
 .semester-select {
-    margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
-    margin-top: 50px; /* Dịch chuyển thanh lựa chọn xuống dưới */
+    margin-left: 180px;
+    /* Dịch chuyển thanh lựa chọn sang phải */
+    margin-top: 50px;
+    /* Dịch chuyển thanh lựa chọn xuống dưới */
+}
+
+.result-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    height: 400px; 
+    overflow-y: scroll;
+    margin-left: 240px; 
+    display:none ;
+    margin-top: 0px;
+}
+
+.result {
+    margin-top: 20px;
 }
 
 
+.result-header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
 
+.result-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    overflow-wrap: break-word;
+}
 
+.result-row:last-child {
+    border-bottom: none;
+}
 
+.result-row span {
+    padding: 5px;
+    overflow-wrap: break-word;
+}

@@ -5,62 +5,9 @@
 
 /* Tùy chỉnh kiểu cho các cột cụ thể nếu cần */
 /* Ví dụ: Đặt kiểu cho cột "Ghi chú" */
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 80px); 
-}
 
-.result_schedule-box {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 800px;
-    text-align: center;
-    height: 400px; 
-    overflow-y: scroll;
-    margin-left: 240px; 
-    display:none;
-    margin-top: 0px;
-}
 
-h2 {
-    color: #008000;
-}
 
-.result_schedule {
-    margin-top: 20px;
-   
-}
-
-.result_schedule-header {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: bold;
-    background-color: #f2f2f2;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.result_schedule-row {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-   
-}
-
-.result_schedule-row:last-child {
-    border-bottom: none;
-}
-
-.result_schedule-row span {
-    padding: 5px;
-    overflow-wrap: break-word;
-}
 
  /* CSS cho bảng course-table */
  .content1 {
