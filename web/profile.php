@@ -1,5 +1,7 @@
-<h2 class="mt-2 text-info">Hồ sơ cá nhân</h2>
 
+<head>
+    <h2 class="mt-2 text-info">Hồ sơ cá nhân</h2>
+</head>
 <?php
 
    session_start();
@@ -7,14 +9,15 @@
    
    if (isset($_SESSION['username'])) {
        $username = $_SESSION['username'];
-       $stmt = $conn->prepare("SELECT first_name, last_name, birthday, gender, student_class FROM profile WHERE user_id = ?");
+       $stmt = $conn->prepare("SELECT user_id,first_name, last_name, birthday, gender, student_class FROM profile WHERE user_id = ?");
        $stmt->bind_param("s", $username);
        $stmt->execute();
        $result = $stmt->get_result();
    
        if ($result && $result->num_rows > 0) {
            $user_info = $result->fetch_assoc();
-   
+          
+           $user_id = $user_info['user_id'];
            $first_name = $user_info['first_name'];
            $last_name = $user_info['last_name'];
            $birthday = $user_info['birthday'];
@@ -45,36 +48,88 @@
     }
 </style>
 
-<hr>
-<div class="container py-5 h-80">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-lg-6 mb-4 mb-lg-0">
-        <div class="card mb-3" style="border-radius: .5rem;">
-          <div class="row g-0">
-            <div class="col-md-4 gradient-custom text-center text-white"
-              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img src="image/meow.png" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-            </div>
-
-            <p>Họ và tên: <?php echo $last_name . ' ' . $first_name; ?></p>
-            <p>Ngày sinh: <?php echo $birthday; ?></p>
-            <p>Giới tính: <?php echo $gender; ?></p>
-            <p>Lớp học: <?php echo $student_class; ?></p>
-
-
-            <div class="col-md-8">
-              <div class="card-body p-20">
-                <hr class="mt-0 mb-4">
-                <div class="row pt-1">
-                    <div class="col-4 mb-2">
-                    </div>
-                    <div class="col-8 mb-3">
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="header-right" style="text-align: right;">
+    <div id="headerWelcome">
+        Xin chào bạn: <strong>
+        <?php echo $last_name . ' ' . $first_name; ?></strong> <?php echo '[' . $user_id . ']'; ?>
     </div>
 </div>
+
+<body>
+    <hr>
+    <div class="container py-5 h-80">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-6 mb-4 mb-lg-0">
+                <div class="card mb-3" style="border-radius: .5rem;">
+                    <div class="row g-0">
+                        <div class="col-md-4 gradient-custom text-center text-white"
+                            style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                            <div style="display: flex; align-items: start;">
+                                <div class="menu">
+                                    <div class="menu-items">
+                                        <button onclick="window.location.href='schedule.php'">Thời khóa biểu</button>
+                                        <button>Lớp học</button>
+                                        <button onclick="window.location.href='exam_schedule.php'">Lịch thi</button>
+                                        <button onclick ="window.location.href = 'result.php'">Kết quả học tập</button>
+                                        <button onclick="window.location.href='course-handbook.php'">Cẩm nang môn học</button>
+                                        <button onclick="window.location.href='feed-back.php'">Góp ý</button>
+                                        <button onclick = "window.location.href = 'profile.php'">Tài khoản</button>
+                                        <button onclick = "window.location.href = 'logout.php'">Đăng xuất</button>
+                                    </div>
+                                </div>
+                                <div class="info">
+                                    <img src="img/meow.png" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                    <p>
+                                        Mã sinh viên : 
+                                        <span >
+                                            <?php echo $user_id; ?>
+                                        </span>
+                                    </p>
+                                    <p>
+                                        Họ và tên: 
+                                        <span>
+                                            <?php echo $last_name . ' ' . $first_name; ?>
+                                        </span>
+                                    </p>
+                                    <p>
+                                        Ngày sinh: 
+                                        <span><?php echo $birthday; ?></span>
+                                    </p>
+                                    <p>
+                                        Giới tính: 
+                                        <span><?php echo $gender; ?></span>
+                                    </p>
+                                    <p>
+                                        Lớp học: 
+                                        <span ><?php echo $student_class; ?></span>
+                                    </p>
+                                    <!-- Thêm nút chỉnh sửa -->
+                                <button onclick="editUserInfo()">Chỉnh sửa thông tin</button>
+
+                                <!-- JavaScript để điều hướng người dùng đến trang chỉnh sửa -->
+                                <script>
+                                    function editUserInfo() {
+                                        window.location.href = 'edit_profile.php';
+                                    }
+                                </script>
+                                
+                                <!-- Thêm nút "Danh sách lớp" -->
+                                <button onclick="showClassList()">Danh sách lớp</button>
+
+                                <script>
+                                    function showClassList() {
+                                        // Chuyển hướng đến trang hiển thị danh sách lớp
+                                        window.location.href = 'class_list.php';
+                                    }
+                                </script>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

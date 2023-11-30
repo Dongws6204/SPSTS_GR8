@@ -34,7 +34,9 @@
     <div class="container">
         <div class="menu">
             <div class="menu-items">
-
+            <!-- <head>
+                <link rel="stylesheet" type="text/css" href="style.css">
+            </head> -->
                 <button onclick="window.location.href='schedule.php'">Thời khóa biểu</button>
                 <button>Lớp học</button>
                 <button onclick="window.location.href='exam_schedule.php'">Lịch thi</button>
