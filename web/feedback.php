@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch thi</title>
+    <title>Góp ý</title>
     <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
     <div class="user-info">
@@ -45,33 +46,25 @@
             </button>
         </div>
     </div>
-    <div class="semester-select">
-        <select id="semester">
-            <option value="hoc-ky-1">Học kỳ 1 năm học 2023-2024</option>
-            <option value="hoc-ky-2">Học kỳ 2 năm học 2023-2024</option>
-        </select>
-        <button id="view-schedule-button">Xem lịch thi</button>
-    </div>
-   <div class="content">
-    <div class="schedule-box">
-           <h2>Lịch thi</h2>
-        <div class="schedule">
-            <div class="schedule-item">
-                <div class="schedule-header">
-                    <span>STT</span>
-                    <span>Giờ</span>
-                    <span>Ngày thi</span>
-                    <span>Môn học</span>
-                    <span>Số TC</span>
-                    <span>Địa điểm</span>
-                    <span>Hình thức thi</span>
-                </div>
-                <div class="schedule-row" id="schedule-content">
-                    
-                </div>
+    <div class="feedback-container">
+        <h1>Liên hệ</h1>
+        <h2>Liên hệ với Người quản trị để giải quyết các vấn đề</h2>
+        <form>
+            <div class="form-group">
+                <label for="issue-type">Chọn loại vấn đề:</label>
+                <select id="issue-type" name="issue-type">
+                    <option value="admin-support">Liên hệ với Người quản trị</option>
+                    <option value="report-mistake">Báo cáo lỗi</option>
+                    <option value="incorrect-information">Sai thông tin</option>
+                    <option value="other-issues">Các vấn đề khác</option>
+                </select>
             </div>
-        </div>
-    </div>
+            <div class="form-group">
+                <label for="feedback">Nội dung:</label>
+                <textarea id="feedback" name="feedback" rows="4"></textarea>
+            </div>
+            <button type="submit">Gửi liên hệ</button>
+        </form>
     </div>
     <script>
         function toggleDropdown() {
@@ -99,20 +92,6 @@
                 window.location.href = 'index.php';
             }
         }
-        const viewScheduleButton = document.getElementById('view-schedule-button');
-        const scheduleBox = document.querySelector('.schedule-box');
-        const semesterSelect = document.getElementById('semester');
-    
-        viewScheduleButton.addEventListener('click', () => {
-            const selectedSemester = semesterSelect.value;
-            if (selectedSemester === 'hoc-ky-1') {
-                scheduleBox.style.display = 'block';
-                // Thêm logic lấy dữ liệu lịch thi cho học kỳ 1 và cập nhật nội dung ở đây (nếu cần)
-            } else if (selectedSemester === 'hoc-ky-2') {
-                scheduleBox.style.display = 'none';
-                alert('Dữ liệu chưa được cập nhật');
-            }
-        });
     </script>
 </body>
 </html>

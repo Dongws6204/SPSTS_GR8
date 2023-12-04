@@ -1,16 +1,72 @@
 .semester-select2 {
-    margin-left: 180px; /* Dịch chuyển thanh lựa chọn sang phải */
-    margin-top:40px;
+    position: absolute;
+    top: 50px; 
+    left: 600px; 
+    z-index: 1; 
+    padding: 8px 15px; 
+    border-radius: 20px; 
 }
 
 /* Tùy chỉnh kiểu cho các cột cụ thể nếu cần */
 /* Ví dụ: Đặt kiểu cho cột "Ghi chú" */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); 
+}
 
+.result_schedule-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    height: 400px; 
+    overflow-y: scroll;
+    margin-left: 240px; 
+    display:none;
+    margin-top: 0px;
+}
 
+h2 {
+    color: lightseagreen ;
+}
 
+.result_schedule {
+    margin-top: 20px;
+   
+}
 
- /* CSS cho bảng course-table */
- .content1 {
+.result_schedule-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.result_schedule-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+   
+}
+
+.result_schedule-row:last-child {
+    border-bottom: none;
+}
+
+.result_schedule-row span {
+    padding: 5px;
+    overflow-wrap: break-word;
+}
+/*course-handbook*/
+.content1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +89,7 @@
 }
 
 h2 {
-    color: #008000;
+    color: lightseagreen;
 }
 
 .course_handbook {
@@ -74,6 +130,7 @@ h2 {
     border-radius: 10px;
     max-width: 800px;
     margin-left:240px;
+    height:400px;
 }
 
 .feedback-container h1 {
@@ -85,7 +142,7 @@ h2 {
 .feedback-container h2 {
     font-size: 18px;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .feedback-container form {
@@ -110,7 +167,7 @@ h2 {
 }
 
 .feedback-container button {
-    background-color: green;
+    background-color: royalblue;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -121,12 +178,7 @@ h2 {
 }
 
 .feedback-container button:hover {
-    background-color: #ccc;
-}
-.account-buttons {
-    display: none;
-    flex-direction: column;
-    align-items: center;
+    background-color: lightskyblue;
 }
 /*css cho quên mật khẩu*/
 .forgot-password-container {
@@ -176,7 +228,7 @@ h2 {
 }
 
 .forgot-password-container .submit-button button {
-    background-color: green;
+    background-color: royalblue;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -187,6 +239,6 @@ h2 {
 }
 
 .forgot-password-container .submit-button button:hover {
-    background-color: #ccc;
+    background-color: lightskyblue;
 }
 

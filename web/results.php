@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch thi</title>
+    <title>Kết quả học tập</title>
     <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
     <div class="user-info">
@@ -45,33 +46,34 @@
             </button>
         </div>
     </div>
-    <div class="semester-select">
+    <div class="semester-select2">
         <select id="semester">
+            <option value="hoc-ky-2-1">Học kỳ 2 năm học 2022-2023</option>
             <option value="hoc-ky-1">Học kỳ 1 năm học 2023-2024</option>
             <option value="hoc-ky-2">Học kỳ 2 năm học 2023-2024</option>
         </select>
-        <button id="view-schedule-button">Xem lịch thi</button>
+        <button id="view-result-button">Xem Kết Quả Học Tập</button>
     </div>
-   <div class="content">
-    <div class="schedule-box">
-           <h2>Lịch thi</h2>
-        <div class="schedule">
-            <div class="schedule-item">
-                <div class="schedule-header">
-                    <span>STT</span>
-                    <span>Giờ</span>
-                    <span>Ngày thi</span>
-                    <span>Môn học</span>
-                    <span>Số TC</span>
-                    <span>Địa điểm</span>
-                    <span>Hình thức thi</span>
-                </div>
-                <div class="schedule-row" id="schedule-content">
-                    
+    <div class="content">
+        <div class="result_schedule-box">
+            <h2>kết quả học tập</h2>
+            <div class="result_schedule">
+                <div class="result_schedule-item">
+                    <div class="result_schedule-header">
+                        <span>STT</span>
+                        <span>Môn học</span>
+                        <span>Mã học phần</span>
+                        <span>Số TC</span>
+                        <span>Điểm TK</span>
+                        <span>Điểm quy đổi</span>
+                        <span>Ghi chú</span>
+                    </div>
+                    <div class="result_schedule-row" id="result_schedule-content">
+                      
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <script>
         function toggleDropdown() {
@@ -99,17 +101,17 @@
                 window.location.href = 'index.php';
             }
         }
-        const viewScheduleButton = document.getElementById('view-schedule-button');
-        const scheduleBox = document.querySelector('.schedule-box');
+        const viewScheduleButton = document.getElementById('view-result-button');
+        const resultscheduleBox = document.querySelector('.result_schedule-box');
         const semesterSelect = document.getElementById('semester');
     
         viewScheduleButton.addEventListener('click', () => {
             const selectedSemester = semesterSelect.value;
-            if (selectedSemester === 'hoc-ky-1') {
-                scheduleBox.style.display = 'block';
-                // Thêm logic lấy dữ liệu lịch thi cho học kỳ 1 và cập nhật nội dung ở đây (nếu cần)
-            } else if (selectedSemester === 'hoc-ky-2') {
-                scheduleBox.style.display = 'none';
+            if (selectedSemester === 'hoc-ky-2-1') {
+               resultscheduleBox.style.display = 'block';
+                // Thêm logic lấy dữ liệu thời khóa biểu cho học kỳ 1 và cập nhật nội dung ở đây (nếu cần)
+            } else  {
+                resultscheduleBox.style.display = 'none';
                 alert('Dữ liệu chưa được cập nhật');
             }
         });
