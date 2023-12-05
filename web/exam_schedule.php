@@ -52,7 +52,8 @@
         </select>
         <button id="view-schedule-button">Xem lịch thi</button>
     </div>
-   <div class="content">
+
+<div class="content">
     <div class="schedule-box">
            <h2>Lịch thi</h2>
         <div class="schedule">
@@ -72,7 +73,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdown");
@@ -113,6 +114,14 @@
                 alert('Dữ liệu chưa được cập nhật');
             }
         });
+
+        var viewScheduleButton1 = document.getElementById('view-schedule-button');
+
+        // Thêm sự kiện "click" vào nút
+        viewScheduleButton.addEventListener('click', function() {
+        // Mở liên kết trong một tab mới
+        window.open('https://daotaodaihoc.uet.vnu.edu.vn/congdaotao/module/dsthi/', '_blank');
+            });
     </script>
 </body>
 </html>

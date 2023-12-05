@@ -1,4 +1,4 @@
-* {
+ * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -232,17 +232,6 @@ body {
 .content {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: calc(100vh - 80px);
-}
-
-.schedule-box {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 800px;
     text-align: center;
     height: 400px;
     overflow-y: scroll;
@@ -256,35 +245,8 @@ h2 {
     color: lightseagreen;
 }
 
-.schedule {
-    margin-top: 20px;
-
-}
-
-.schedule-header {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: bold;
-    background-color: #f2f2f2;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.schedule-row {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    overflow-wrap: break-word;
-
-}
-
-.schedule-row:last-child {
-    border-bottom: none;
-}
-
-.schedule-row span {
-    padding: 5px;
+.schedule 
+ {
     overflow-wrap: break-word;
 }
 

@@ -46,26 +46,30 @@
             </button>
         </div>
     </div>
+
     <div class="feedback-container">
-        <h1>Liên hệ</h1>
-        <h2>Liên hệ với Người quản trị để giải quyết các vấn đề</h2>
-        <form>
-            <div class="form-group">
-                <label for="issue-type">Chọn loại vấn đề:</label>
-                <select id="issue-type" name="issue-type">
-                    <option value="admin-support">Liên hệ với Người quản trị</option>
-                    <option value="report-mistake">Báo cáo lỗi</option>
-                    <option value="incorrect-information">Sai thông tin</option>
-                    <option value="other-issues">Các vấn đề khác</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="feedback">Nội dung:</label>
-                <textarea id="feedback" name="feedback" rows="4"></textarea>
-            </div>
-            <button type="submit">Gửi liên hệ</button>
-        </form>
-    </div>
+    <h1>Liên hệ</h1>
+    <h2>Liên hệ với Người quản trị để giải quyết các vấn đề</h2>
+    <form action="submit_feedback.php" method="post">
+        <div class="form-group">
+            <label for="issue-type">Chọn loại vấn đề:</label>
+            <select id="issue-type" name="issue-type">
+                <option value="admin-support">Liên hệ với Người quản trị</option>
+                <option value="report-mistake">Báo cáo lỗi</option>
+                <option value="incorrect-information">Sai thông tin</option>
+                <option value="other-issues">Các vấn đề khác</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="feedback">Nội dung:</label>
+            <textarea id="feedback" name="feedback" rows="4"></textarea>
+        </div>
+        <button type="submit">Gửi liên hệ</button>
+    </form>
+</div>
+
+
+
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdown");

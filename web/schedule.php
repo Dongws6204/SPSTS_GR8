@@ -53,6 +53,30 @@
             <option value="hoc-ky-2">Học kỳ 2 năm học 2023-2024</option>
         </select>
         <button id="view-schedule-button">Xem TKB</button>
+        <button id ="create-schedule-button">Tạo TKB</button>
+
+        <!-- Form nhập thông tin thời khóa biểu -->
+    <form id="schedule-form" style="display: none;">
+        <div class="form-group">
+            <label for="subject-name-input">Môn học:</label>
+            <input type="text" id="subject-name-input" name="subjectName">
+        </div>
+        <div class="form-group">
+            <label for="start-time-input">Thời gian bắt đầu:</label>
+            <input type="text" id="start-time-input" name="startTime">
+        </div>
+        <div class="form-group">
+            <label for="end-time-input">Thời gian kết thúc:</label>
+            <input type="text" id="end-time-input" name="endTime">
+        </div>
+        <div class="form-group">
+            <label for="day-input">Thứ:</label>
+            <input type="text" id="day-input" name="day">
+        </div>
+        <button type="button" id="submit-button">Gửi</button>
+    </form>
+        
+        
     </div>
     <div class="content">
         <div class="schedule-box">
@@ -69,37 +93,6 @@
                         <span>Ghi chú</span>
                     </div>
                     <div class="schedule-row" id="schedule-content">
-                        <?php
-                        session_start();
-                        include'connect.php';
-
-                        if (isset($_POST['view_schedule'])) {
-                            $selectedSemester = $_POST['semester'];
-                            $sql = "SELECT * FROM timetable WHERE semester_id = '$selectedSemester'";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<div class='schedule-row'>";
-                                    echo "<span>{$row['day']}</span>";
-                                    echo "<span>{$row['subject_name']}</span>";
-                                    echo "<span>{$row['start_time']} - {$row['end_time']}</span>";
-                                    echo "<span>{$row['class_name']}</span>";
-                                    echo "<span>{$row['teacher_name']}</span>";
-                                    echo "<span>{$row['teacher_name']}</span>";
-                                    echo "<span>{$row['teacher_name']}</span>";
-                                    echo "</div>";
-                                }
-                            } else {
-                                echo "Dữ liệu chưa được cập nhật";
-                            }
-                        }
-
-                        // Close the database connection
-                        $conn->close();
-                        ?>
-                    </div>
-                       
                     </div>
                 </div>
             </div>
@@ -144,6 +137,41 @@
         alert('Dữ liệu chưa được cập nhật');
     }
     });
+
+    document.getElementById('create-schedule-button').addEventListener('click', function () {
+            const form = document.getElementById('schedule-form');
+            form.style.display = 'block';
+        });
+
+        document.getElementById('submit-button').addEventListener('click', function () {
+            const subjectName = document.getElementById('subject-name-input').value;
+            const startTime = document.getElementById('start-time-input').value;
+            const endTime = document.getElementById('end-time-input').value;
+            const day = document.getElementById('day-input').value;
+
+            if (!subjectName || !startTime || !endTime || !day) {
+                alert('Vui lòng nhập đủ thông tin.');
+                return;
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'create_schedule.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            const data = `subjectName=${subjectName}&startTime=${startTime}&endTime=${endTime}&day=${day}`;
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    const response = xhr.responseText;
+                    alert(response);
+                }
+            };
+
+            xhr.send(data);
+            // Tắt form sau khi gửi thành công
+            const form = document.getElementById('schedule-form');
+                form.style.display = 'none';
+        });
     </script>
 </body>
 </html>

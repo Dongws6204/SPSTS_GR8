@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="vi">
+<?php
+    session_start();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chính</title>
+    <title>Cẩm nang môn học</title>
     <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+
 </head>
 <body>
     <div class="user-info">
         <div class="user-name" onclick="toggleDropdown()">Tên người dùng</div>
         <div class="dropdown" id="dropdown">
             <button onclick="navigateTo('account')">Tài khoản</button>
+
             <button onclick="navigateTo('password')">Đổi mật khẩu</button>
         </div>
     </div>
+    
     <div class="menu">
         <div class="logo">
             <img src="img/Asset 4.png" alt="Logo Hỗ trợ sinh viên">
@@ -46,6 +53,26 @@
         </div>
         
     </div>
+    <!-- <div class="content1">
+        <div class="course_handbook-box">
+            <h2>Tài liệu</h2>
+            <div class="course_handbook">
+                <div class="course_handbook-item">
+                    <div class="course_handbook-header">
+                        <span>STT</span>
+                        <span>Môn học</span>
+                        <span>Mã học phần</span>
+                        <span>Số TC</span>
+                        <span>Tên tài liệu</span>
+                        <span>Loại tài liệu</span>
+                        <span>Ghi chú</span>
+                    </div>
+                    <div class="course_handbook-row" id="course_handbook-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdown");
@@ -55,7 +82,7 @@
         function navigateTo(page) {
             // Thực hiện chuyển hướng tùy theo page được chọn
             if (page === 'account') {
-                window.location.href = 'account.php';
+                window.location.href = 'profile.php';
             } else if (page === 'password') {
                 window.location.href = 'password.php';
             } else if (page === 'schedule') {
@@ -73,5 +100,9 @@
             }
         }
     </script>
+       <?php
+        // Ngắt kết nối database
+        $connect = null;
+    ?>
 </body>
 </html>

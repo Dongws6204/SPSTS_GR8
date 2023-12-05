@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -6,8 +7,10 @@
     <title>Cẩm nang môn học</title>
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="style2.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
+
 <body>
     <div class="user-info">
         <div class="user-name" onclick="toggleDropdown()">Tên người dùng</div>
@@ -48,26 +51,79 @@
         </div>
         
     </div>
-    <div class="content1">
-        <div class="course_handbook-box">
-            <h2>Tài liệu</h2>
-            <div class="course_handbook">
-                <div class="course_handbook-item">
-                    <div class="course_handbook-header">
-                        <span>STT</span>
-                        <span>Môn học</span>
-                        <span>Mã học phần</span>
-                        <span>Số TC</span>
-                        <span>Tên tài liệu</span>
-                        <span>Loại tài liệu</span>
-                        <span>Ghi chú</span>
-                    </div>
-                    <div class="course_handbook-row" id="course_handbook-content">
-                    </div>
-                </div>
+
+<div class="content1">
+
+    <div class="course_handbook-box">
+        <h2>Tài liệu</h2>
+        <div class="course_handbook">
+            <div class="course_handbook-item">
+                <table class="course_handbook-table">
+                    <thead>
+                        <tr class="course_handbook-header">
+                            <th>STT</th>
+                            <th>Môn học</th>
+                            <th>Mã học phần</th>
+                            <th>Số TC</th>
+                            <th>Tên tài liệu</th>
+                            <th>Loại tài liệu</th>
+                            <th>Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody id="course_handbook-content">
+                        <!-- Dữ liệu sẽ được chèn động từ JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
+
+<script>
+        $(document).ready(function () {
+            // Gọi hàm để lấy dữ liệu và hiển thị trong bảng
+            fetchDataAndDisplay();
+
+            function fetchDataAndDisplay() {
+                // Sử dụng AJAX để gửi yêu cầu đến server
+                $.ajax({
+                    url: 'get_documents.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (documents) {
+                        // Xử lý và hiển thị dữ liệu
+                        displayDocuments(documents);
+                    },
+                    error: function () {
+                        console.log('Lỗi khi gọi get_documents.php');
+                    }
+                });
+            }
+
+            function displayDocuments(documents) {
+                var tableBody = $('#course_handbook-content');
+
+                // Xóa nội dung cũ của bảng
+                tableBody.empty();
+
+                // Hiển thị dữ liệu mới
+                for (var i = 0; i < documents.length; i++) {
+                    var row = '<tr>' +
+                        '<td>' + (i + 1) + '</td>' +
+                        '<td>' + documents[i].subject_name + '</td>' +
+                        '<td>' + documents[i].course_code + '</td>' +
+                        '<td>4</td>' + // Giả sử mặc định số TC là 4
+                        '<td>' + documents[i].document_name + '</td>' +
+                        '<td>' + documents[i].document_type + '</td>' +
+                        '<td><a href="' + documents[i].Url + '" target="_blank">' + documents[i].Url + '</a></td>' +
+                        '</tr>';
+
+                    tableBody.append(row);
+                }
+            }
+        });
+    </script>
+
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdown");
@@ -77,7 +133,7 @@
         function navigateTo(page) {
             // Thực hiện chuyển hướng tùy theo page được chọn
             if (page === 'account') {
-                window.location.href = 'account.php';
+                window.location.href = 'profile.php';
             } else if (page === 'password') {
                 window.location.href = 'password.php';
             } else if (page === 'schedule') {
@@ -95,5 +151,8 @@
             }
         }
     </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
