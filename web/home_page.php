@@ -22,8 +22,24 @@ session_start();
 
             <button onclick="navigateTo('password')">Đổi mật khẩu</button>
         </div>
+    
     </div>
     
+    <style>
+    .button-container {
+        position: absolute;
+        right: 35px;
+        bottom: 20px;
+    }
+    </style>
+
+    <div class="button-container">
+        <button onclick="navigateTo('chatbot')">
+            <img src="img/icons8-chat-50.png" alt="Icon 2">
+            <span>Chat</span>
+        </button>
+    </div>
+
     <div class="menu">
         <div class="logo">
             <img src="img/Asset 4.png" alt="Logo Hỗ trợ sinh viên">
@@ -54,7 +70,6 @@ session_start();
                 <span>Logout</span>
             </button>
         </div>
-        
     </div>
     <!-- <div class="content1">
         <div class="course_handbook-box">
@@ -100,6 +115,8 @@ session_start();
                 window.location.href = 'feedback.php';
             } else if (page === 'logout') {
                 window.location.href = 'index.php';
+            } else if (page === 'chatbot') {
+                window.location.href = 'https://automatic-yodel-v6v6p5x4ppw6hxgxq-8501.app.github.dev/';
             }
         }
     </script>
