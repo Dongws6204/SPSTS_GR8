@@ -15,7 +15,7 @@
                     <input type="text" id="username" name="username" placeholder="Tài khoản">
                     <input type="password" id="password" name="password" placeholder="Mật khẩu">
                     <button type="submit" name="login">Đăng nhập</button>
-                    <a href="forgot-password.html">Quên mật khẩu?</a>
+                    <a href="forgot-password.php">Quên mật khẩu?</a>
                 </form>
             </div>
         </div>

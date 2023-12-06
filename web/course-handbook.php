@@ -1,4 +1,7 @@
 
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -13,7 +16,10 @@
 
 <body>
     <div class="user-info">
-        <div class="user-name" onclick="toggleDropdown()">Tên người dùng</div>
+         <div class="user-avatar" onclick="toggleDropdown()">
+            <img src="img\ava.png" alt="Avatar">
+            </div>
+        <div class="user-name" onclick="toggleDropdown()"><?php echo $_SESSION['user_name']; ?></div>
         <div class="dropdown" id="dropdown">
             <button onclick="navigateTo('account')">Tài khoản</button>
             <button onclick="navigateTo('password')">Đổi mật khẩu</button>
@@ -58,22 +64,17 @@
         <h2>Tài liệu</h2>
         <div class="course_handbook">
             <div class="course_handbook-item">
-                <table class="course_handbook-table">
-                    <thead>
-                        <tr class="course_handbook-header">
-                            <th>STT</th>
-                            <th>Môn học</th>
-                            <th>Mã học phần</th>
-                            <th>Số TC</th>
-                            <th>Tên tài liệu</th>
-                            <th>Loại tài liệu</th>
-                            <th>Ghi chú</th>
-                        </tr>
-                    </thead>
-                    <tbody id="course_handbook-content">
+                         <div class="course_handbook-header">
+                            <span class="header-item">STT</span>
+                            <span class="header-item">Môn học</span>
+                            <span class="header-item">Mã học phần</span>
+                            <span class="header-item">Tên tài liệu</span>
+                            <span class="header-item">Loại tài liệu</span>
+                            <span class="header-item">Ghi chú</span>
+                        </div>
+                        <div id="course_handbook-content" class="course_handbook-content">
                         <!-- Dữ liệu sẽ được chèn động từ JavaScript -->
-                    </tbody>
-                </table>
+                    </div>
             </div>
         </div>
     </div>
@@ -101,24 +102,24 @@
             }
 
             function displayDocuments(documents) {
-                var tableBody = $('#course_handbook-content');
+                var contentContainer = $('#course_handbook-content');
 
-                // Xóa nội dung cũ của bảng
-                tableBody.empty();
+      // Xóa nội dung cũ của container
+      contentContainer.empty();
 
                 // Hiển thị dữ liệu mới
                 for (var i = 0; i < documents.length; i++) {
-                    var row = '<tr>' +
-                        '<td>' + (i + 1) + '</td>' +
-                        '<td>' + documents[i].subject_name + '</td>' +
-                        '<td>' + documents[i].course_code + '</td>' +
-                        '<td>4</td>' + // Giả sử mặc định số TC là 4
-                        '<td>' + documents[i].document_name + '</td>' +
-                        '<td>' + documents[i].document_type + '</td>' +
-                        '<td><a href="' + documents[i].Url + '" target="_blank">' + documents[i].Url + '</a></td>' +
-                        '</tr>';
+                    var row = '<span class="row">' +
+                    '<div class="cell">' + (i + 1) + '</div>' +
+                    '<div class="cell">' + documents[i].subject_name + '</div>' +
+                    '<div class="cell">' + documents[i].course_code + '</div>' +
 
-                    tableBody.append(row);
+                    '<div class="cell">' + documents[i].document_name + '</div>' +
+                    '<div class="cell">' + documents[i].document_type + '</div>' +
+                    '<div class="cell"><a href="' + documents[i].Url + '" target="_blank">' + documents[i].Url + '</a></div>' +
+                    '</span>';
+
+                    contentContainer.append(row);
                 }
             }
         });

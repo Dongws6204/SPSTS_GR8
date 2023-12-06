@@ -1,15 +1,36 @@
+<?php
+include 'connect.php';
+session_start();
+$successMessage = "";
+$errorMessage = "";
+$sql = "SELECT * 
+FROM grades g 
+LEFT JOIN subject s on g.subject_id = s.subject_id ";
+$result = mysqli_query($conn, $sql);
+
+
+$grades = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $grades[] = $row;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kết quả học tập</title>
-    <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style1.css">
+    
 </head>
 <body>
     <div class="user-info">
-        <div class="user-name" onclick="toggleDropdown()">Tên người dùng</div>
+    <div class="user-avatar" onclick="toggleDropdown()">
+            <img src="img\ava.png" alt="Avatar">
+            </div>
+        <div class="user-name" onclick="toggleDropdown()"><?php echo $_SESSION['user_name']; ?></div>
         <div class="dropdown" id="dropdown">
             <button onclick="navigateTo('account')">Tài khoản</button>
             <button onclick="navigateTo('password')">Đổi mật khẩu</button>
@@ -56,7 +77,7 @@
     </div>
     <div class="content">
         <div class="result_schedule-box">
-            <h2>kết quả học tập</h2>
+            <h2>Kết quả học tập</h2>
             <div class="result_schedule">
                 <div class="result_schedule-item">
                     <div class="result_schedule-header">
@@ -65,11 +86,19 @@
                         <span>Mã học phần</span>
                         <span>Số TC</span>
                         <span>Điểm TK</span>
-                        <span>Điểm quy đổi</span>
-                        <span>Ghi chú</span>
                     </div>
-                    <div class="result_schedule-row" id="result_schedule-content">
-                      
+                    <?php
+                    // Display timetable data in a single column
+                    foreach ($grades as $row) {
+                        echo "<div class='result_schedule-row'>";
+                        echo "<span>" . $row['grade_id'] . "</span>";
+                        echo "<span>" . $row['subject_name'] . "</span>";
+                        echo "<span>" . $row['subject_id'] . "</span>";
+                        echo "<span>" . $row['subject_credits'] . "</span>";
+                        echo "<span>" . $row['grade'] . "</span>";
+                        echo "</div>";
+                    }
+                    ?>
                     </div>
                 </div>
             </div>

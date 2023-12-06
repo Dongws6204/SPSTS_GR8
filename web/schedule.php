@@ -1,3 +1,19 @@
+<?php
+include 'connect.php';
+session_start();
+$successMessage = "";
+$errorMessage = "";
+$sql = "SELECT * FROM timetable";
+$result = mysqli_query($conn, $sql);
+
+
+// Organize timetable data by day
+$timetableData = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $timetableData[] = $row;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -8,7 +24,10 @@
 </head>
 <body>
     <div class="user-info">
-        <div class="user-name" onclick="toggleDropdown()">Tên người dùng</div>
+    <div class="user-avatar" onclick="toggleDropdown()">
+            <img src="img\ava.png" alt="Avatar">
+            </div>
+        <div class="user-name" onclick="toggleDropdown()"><?php echo $_SESSION['user_name']; ?></div>
         <div class="dropdown" id="dropdown">
             <button onclick="navigateTo('account')">Tài khoản</button>
             <button onclick="navigateTo('password')">Đổi mật khẩu</button>
@@ -48,36 +67,12 @@
     </div>
     <div class="semester-select1">
         <select id="semester">
-            
             <option value="hoc-ky-1">Học kỳ 1 năm học 2023-2024</option>
             <option value="hoc-ky-2">Học kỳ 2 năm học 2023-2024</option>
         </select>
         <button id="view-schedule-button">Xem TKB</button>
-        <button id ="create-schedule-button">Tạo TKB</button>
-
-        <!-- Form nhập thông tin thời khóa biểu -->
-    <form id="schedule-form" style="display: none;">
-        <div class="form-group">
-            <label for="subject-name-input">Môn học:</label>
-            <input type="text" id="subject-name-input" name="subjectName">
-        </div>
-        <div class="form-group">
-            <label for="start-time-input">Thời gian bắt đầu:</label>
-            <input type="text" id="start-time-input" name="startTime">
-        </div>
-        <div class="form-group">
-            <label for="end-time-input">Thời gian kết thúc:</label>
-            <input type="text" id="end-time-input" name="endTime">
-        </div>
-        <div class="form-group">
-            <label for="day-input">Thứ:</label>
-            <input type="text" id="day-input" name="day">
-        </div>
-        <button type="button" id="submit-button">Gửi</button>
-    </form>
-        
-        
     </div>
+    
     <div class="content">
         <div class="schedule-box">
             <h2>Thời khóa biểu</h2>
@@ -88,21 +83,31 @@
                         <span>Môn học</span>
                         <span>Thời gian</span>
                         <span>Địa điểm</span>
-                        <span>Lớp</span>
                         <span>Tên giáo viên</span>
-                        <span>Ghi chú</span>
                     </div>
-                    <div class="schedule-row" id="schedule-content">
-                    </div>
-                </div>
+                    <?php
+                // Display timetable data in a single column
+                foreach ($timetableData as $row) {
+                    echo "<div class='schedule-row'>";
+                    echo "<span>" . $row['day'] . "</span>";
+                    echo "<span>" . $row['subject_name'] . "</span>";
+                    echo "<span>" . $row['start_time'] . " - " . $row['end_time'] . "</span>";
+                    echo "<span>" . $row['class_name'] . "</span>";
+                    echo "<span>" . $row['teacher_name'] . "</span>";
+                    echo "</div>";
+                }
+                ?>
             </div>
         </div>
-    </div>
+        
+  </div>
+   
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdown");
             dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
         }
+    
 
         function navigateTo(page) {
             // Thực hiện chuyển hướng tùy theo page được chọn
@@ -128,50 +133,18 @@
         const scheduleBox = document.querySelector('.schedule-box');
         const semesterSelect = document.getElementById('semester');
 
+
     viewScheduleButton.addEventListener('click', () => {
-    const selectedSemester = semesterSelect.value;
-    if (selectedSemester === 'hoc-ky-1') {
-        scheduleBox.style.display = 'block';
-    } else if (selectedSemester === 'hoc-ky-2') {
-        scheduleBox.style.display = 'none';
+        const selectedSemester = semesterSelect.value;
+        if (selectedSemester === 'hoc-ky-1') {
+            scheduleBox.style.display = 'block';
+        } else if (selectedSemester === 'hoc-ky-2') {
+            scheduleBox.style.display = 'none';
         alert('Dữ liệu chưa được cập nhật');
-    }
-    });
-
-    document.getElementById('create-schedule-button').addEventListener('click', function () {
-            const form = document.getElementById('schedule-form');
-            form.style.display = 'block';
+        }
         });
 
-        document.getElementById('submit-button').addEventListener('click', function () {
-            const subjectName = document.getElementById('subject-name-input').value;
-            const startTime = document.getElementById('start-time-input').value;
-            const endTime = document.getElementById('end-time-input').value;
-            const day = document.getElementById('day-input').value;
 
-            if (!subjectName || !startTime || !endTime || !day) {
-                alert('Vui lòng nhập đủ thông tin.');
-                return;
-            }
-
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'create_schedule.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-            const data = `subjectName=${subjectName}&startTime=${startTime}&endTime=${endTime}&day=${day}`;
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    const response = xhr.responseText;
-                    alert(response);
-                }
-            };
-
-            xhr.send(data);
-            // Tắt form sau khi gửi thành công
-            const form = document.getElementById('schedule-form');
-                form.style.display = 'none';
-        });
     </script>
 </body>
 </html>

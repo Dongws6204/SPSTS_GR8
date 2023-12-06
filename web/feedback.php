@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -9,7 +12,10 @@
 </head>
 <body>
     <div class="user-info">
-        <div class="user-name" onclick="toggleDropdown()">Tên người dùng</div>
+    <div class="user-avatar" onclick="toggleDropdown()">
+            <img src="img\ava.png" alt="Avatar">
+            </div>
+        <div class="user-name" onclick="toggleDropdown()"><?php echo $_SESSION['user_name']; ?></div>
         <div class="dropdown" id="dropdown">
             <button onclick="navigateTo('account')">Tài khoản</button>
             <button onclick="navigateTo('password')">Đổi mật khẩu</button>
@@ -67,8 +73,6 @@
         <button type="submit">Gửi liên hệ</button>
     </form>
 </div>
-
-
 
     <script>
         function toggleDropdown() {

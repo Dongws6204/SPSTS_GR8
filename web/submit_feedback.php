@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             VALUES ('$student_id', '$request_type', '$request_content', '$request_status', '$request_date')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Thêm thời khóa biểu thành công.');</script>";
-        header("Location: schedule.php"); // Chuyển hướng đến trang feedback.php
+        echo "<script>alert('Gửi góp ý thành công.');</script>";
+        header("Location: feedback.php"); // Chuyển hướng đến trang feedback.php
         exit(); 
     } else {
         echo "Lỗi: " . $conn->error;

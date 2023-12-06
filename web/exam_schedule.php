@@ -1,3 +1,18 @@
+<?php
+include 'connect.php';
+session_start();
+$successMessage = "";
+$errorMessage = "";
+$sql = "SELECT * FROM examschedule";
+$result = mysqli_query($conn, $sql);
+
+
+$examshedule = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $examshedule[] = $row;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -8,7 +23,10 @@
 </head>
 <body>
     <div class="user-info">
-        <div class="user-name" onclick="toggleDropdown()">Tên người dùng</div>
+    <div class="user-avatar" onclick="toggleDropdown()">
+            <img src="img\ava.png" alt="Avatar">
+            </div>
+        <div class="user-name" onclick="toggleDropdown()"><?php echo $_SESSION['user_name']; ?></div>
         <div class="dropdown" id="dropdown">
             <button onclick="navigateTo('account')">Tài khoản</button>
             <button onclick="navigateTo('password')">Đổi mật khẩu</button>
@@ -56,20 +74,29 @@
 <div class="content">
     <div class="schedule-box">
            <h2>Lịch thi</h2>
-        <div class="schedule">
-            <div class="schedule-item">
-                <div class="schedule-header">
+        <div class="schedule1">
+            <div class="schedule-item1">
+                <div class="schedule-header1">
                     <span>STT</span>
                     <span>Giờ</span>
                     <span>Ngày thi</span>
                     <span>Môn học</span>
-                    <span>Số TC</span>
                     <span>Địa điểm</span>
                     <span>Hình thức thi</span>
                 </div>
-                <div class="schedule-row" id="schedule-content">
-                    
-                </div>
+                <?php
+                // Display timetable data in a single column
+                foreach ($examshedule as $row) {
+                    echo "<div class='schedule-row1'>";
+                    echo "<span>" . $row['id_examSchedule'] . "</span>";
+                    echo "<span>" . $row['time'] . "</span>";
+                    echo "<span>" . $row['date'] . "</span>";
+                    echo "<span>" . $row['subject_name'] . "</span>";
+                    echo "<span>" . $row['class_id'] . "</span>";
+                    echo "<span>" . $row['examFormat'] . "</span>";
+                    echo "</div>";
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -108,20 +135,12 @@
             const selectedSemester = semesterSelect.value;
             if (selectedSemester === 'hoc-ky-1') {
                 scheduleBox.style.display = 'block';
-                // Thêm logic lấy dữ liệu lịch thi cho học kỳ 1 và cập nhật nội dung ở đây (nếu cần)
+                
             } else if (selectedSemester === 'hoc-ky-2') {
                 scheduleBox.style.display = 'none';
                 alert('Dữ liệu chưa được cập nhật');
             }
         });
-
-        var viewScheduleButton1 = document.getElementById('view-schedule-button');
-
-        // Thêm sự kiện "click" vào nút
-        viewScheduleButton.addEventListener('click', function() {
-        // Mở liên kết trong một tab mới
-        window.open('https://daotaodaihoc.uet.vnu.edu.vn/congdaotao/module/dsthi/', '_blank');
-            });
     </script>
 </body>
 </html>

@@ -1,280 +1,406 @@
  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
 
-.container {
+ .container {
+     display: flex;
+     width: 80%;
+     max-width: 1200px;
+     height: 80%;
+     border-radius: 20px;
+     overflow: hidden;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .left-panel {
+     flex: 1;
+     background-color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 20px;
+ }
+
+ .left-panel img {
+     max-width: 100%;
+     height: auto;
+ }
+
+ .right-panel {
+     flex: 1;
+     background-image: url("img/background.png");
+     background-size: cover;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     position: relative;
+     padding-top: 20px;
+     /* Thêm padding-top để tạo khoảng trống phía trên cho logo */
+ }
+
+ .welcome-back {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     text-align: center;
+ }
+
+ .logo1 {
+     position: absolute;
+     top: 20px;
+     /* Đặt vị trí của logo ở trên cùng */
+     left: 20px;
+     /* Đặt vị trí của logo ở phía bên trái */
+     width: 100px;
+     height: 100px;
+ }
+
+ .login-form {
+     width: 60%;
+     background-color: rgba(255, 255, 255, 0.8);
+     border-radius: 10px;
+     padding: 20px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .login-form h1 {
+     text-align: center;
+     color: lightskyblue;
+     margin-bottom: 20px;
+ }
+
+ .login-form input {
+     display: block;
+     width: 80%;
+     margin: 0 auto;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     outline: none;
+ }
+
+ .login-form input[type="text"],
+ .login-form input[type="password"] {
+     margin-bottom: 10px;
+ }
+
+ .login-form button {
+     display: block;
+     width: 80%;
+     margin: 10px auto;
+     padding: 10px;
+     background-color: lightskyblue;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .login-form button:hover {
+     background-color: lightblue;
+ }
+
+ .login-form a {
+     display: block;
+     width: 80%;
+     margin: 0 auto;
+     text-align: center;
+     color: lightskyblue;
+     text-decoration: none;
+ }
+
+ .menu {
+     background-color: rgb(87, 176, 231);
+     /* Màu nền của menu */
+     padding: 20px;
+     width: 250px;
+     position: fixed;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+     border-radius: 0 20px 20px 0;
+     overflow: hidden;
+ }
+
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+     background-image: url('img/background.png');
+     /* Thay đổi đường dẫn và tên tệp hình ảnh nền */
+     background-size: cover;
+     background-repeat: no-repeat;
+ }
+
+ .logo {
+     margin-bottom: 10px;
+     margin-left: 170px;
+ }
+
+ .menu-items {
+     width: 250px;
+ }
+
+ .menu-items button {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     padding: 15px;
+     background-color: rgb(87, 176, 231);
+     /* Màu nền của các nút trong menu */
+     border: none;
+     cursor: pointer;
+     transition: background-color 0.3s;
+     /* Hiệu ứng màu nền thay đổi */
+     color: white;
+     font-size: 16px;
+ }
+
+ .menu-items button:hover {
+     background-color: rgb(31, 147, 189);
+     /* Màu nền khi hover */
+ }
+
+
+ .user-name
+ {
+    font-weight: bold;
+    color: rgb(44, 44, 44);
+ }
+
+ .user-avatar img {
+     width: 43x;
+     /* Điều chỉnh kích thước ảnh */
+     height: 43px;
+     border-radius: 50%;
+     /* Đặt border-radius để làm tròn hình ảnh */ 
+     /* Tạo khoảng cách giữa hình ảnh và tên người dùng */
+ }
+
+ .user-info {
+     display: flex;
+     position: absolute;
+     top: 20px;
+     right: 20px;
+ }
+
+ .user-info .user-name {
+     padding: 10px 15px;
+     /* Màu nền của tên người dùng */
+     color: black;
+     /* Màu chữ của tên người dùng */
+     cursor: pointer;
+ }
+
+ .dropdown {
+     display: none;
+     position: absolute;
+     top: 30px;
+     right: 5px;
+     border-radius: 5px;
+     padding: 5px;
+ }
+
+ .dropdown button {
+     display: block;
+     width: calc(100% - 10px);
+     /* Điều chỉnh chiều rộng của nút để tránh tràn */
+     margin: 5px;
+     /* Tạo khoảng cách giữa các nút */
+     padding: 10px;
+     border: none;
+     cursor: pointer;
+     background-color:  rgb(87, 176, 231);
+     /* Màu nền ban đầu của các nút */
+     color: white;
+     /* Màu chữ ban đầu của các nút */
+     border-radius: 10px;
+ }
+
+ .dropdown button:hover {
+     background-color: rgb(31, 147, 189);;
+     /* Màu nền khi hover */
+ }
+
+ /*thời khóa biểu*/
+ .content {
     display: flex;
-    width: 80%;
-    max-width: 1200px;
-    height: 80%;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); 
 }
 
-.left-panel {
-    flex: 1;
+.schedule-box {
+    display: block;
     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 20px;
-}
-
-.left-panel img {
-    max-width: 100%;
-    height: auto;
-}
-
-.right-panel {
-    flex: 1;
-    background-image: url("img/background.png");
-    background-size: cover;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    position: relative;
-    padding-top: 20px;
-    /* Thêm padding-top để tạo khoảng trống phía trên cho logo */
-}
-
-.welcome-back {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-}
-
-.logo1 {
-    position: absolute;
-    top: 20px;
-    /* Đặt vị trí của logo ở trên cùng */
-    left: 20px;
-    /* Đặt vị trí của logo ở phía bên trái */
-    width: 100px;
-    height: 100px;
-}
-
-.login-form {
-    width: 60%;
-    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-form h1 {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
     text-align: center;
-    color: lightskyblue;
-    margin-bottom: 20px;
-}
-
-.login-form input {
-    display: block;
-    width: 80%;
-    margin: 0 auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-}
-
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    margin-bottom: 10px;
-}
-
-.login-form button {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    padding: 10px;
-    background-color: lightskyblue;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-form button:hover {
-    background-color: lightblue;
-}
-
-.login-form a {
-    display: block;
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    color: lightskyblue;
-    text-decoration: none;
-}
-
-.menu {
-    background-color: lightskyblue;
-    /* Màu nền của menu */
-    padding: 20px;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-image: url('img/background.png');
-    /* Thay đổi đường dẫn và tên tệp hình ảnh nền */
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.logo {
-    margin-bottom: 10px;
-    margin-left: 170px;
-}
-
-.menu-items {
-    width: 100%;
-}
-
-.menu-items button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: lightskyblue;
-    /* Màu nền của các nút trong menu */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    /* Hiệu ứng màu nền thay đổi */
-    color: white;
-    font-size: 16px;
-}
-
-.menu-items button:hover {
-    background-color: lightblue;
-    /* Màu nền khi hover */
-}
-
-.user-info {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.user-info .user-name {
-    padding: 10px 15px;
-    background-color: white;
-    /* Màu nền của tên người dùng */
-    color: black;
-    /* Màu chữ của tên người dùng */
-    border: 1px solid black;
-    /* Viền của tên người dùng */
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background-color: white;
-    /* Màu nền của dropdown */
-    border-radius: 5px;
-    padding: 5px;
-}
-
-.dropdown button {
-    display: block;
-    width: calc(100% - 10px);
-    /* Điều chỉnh chiều rộng của nút để tránh tràn */
-    margin: 5px;
-    /* Tạo khoảng cách giữa các nút */
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: lightskyblue;
-    /* Màu nền ban đầu của các nút */
-    color: white;
-    /* Màu chữ ban đầu của các nút */
-    border-radius: 5px;
-    border: 1px solid black;
-}
-
-.dropdown button:hover {
-    background-color: lightblue;
-    /* Màu nền khi hover */
-}
-
-/*thời khóa biểu*/
-.content {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    height: 400px;
+    height: 450px; 
     overflow-y: scroll;
-    margin-left: 250px;
-    display: none;
-    margin-top: 0px;
-
+    margin-left: 250px; 
+    margin-top: 20px;
+    
 }
+
 
 h2 {
-    color: lightseagreen;
+    color: rgb(32, 166, 178);
 }
 
-.schedule 
- {
+.schedule {
+    margin-top: 20px;
+   
+}
+
+.schedule-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    overflow-wrap: break-word;
+ 
+}
+
+.schedule-row1
+{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
     overflow-wrap: break-word;
 }
+
+
+.schedule-row:last-child {
+    border-bottom: none;
+}
+.schedule-row-item {
+    margin-bottom: 20px; /* Adjust the bottom margin as needed */
+    padding: 10px; /* Add padding if needed */
+    border: 1px solid #ddd; /* Add a border for better separation (optional) */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Display items in a column */
+}
+
+.schedule-row-item span {
+    margin-bottom: 5px; /* Adjust the bottom margin for each span */
+}
+.schedule1 {
+    margin-top: 20px;
+}
+
+.schedule-header1 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.schedule1-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    overflow-wrap: break-word;
+ 
+}
+
+
+.schedule1-row:last-child {
+    border-bottom: none;
+}
+.schedule1-row-item {
+    margin-bottom: 20px; /* Adjust the bottom margin as needed */
+    padding: 10px; /* Add padding if needed */
+    border: 1px solid #ddd; /* Add a border for better separation (optional) */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Display items in a column */
+}
+
+.schedule1-row-item span {
+    margin-bottom: 5px; /* Adjust the bottom margin for each span */
+}
+
+
 
 /* Sửa lại CSS của .semester-select1 */
 .semester-select1 {
     position: absolute;
-    top: 50px;
+    top: 70px;
     /* Điều chỉnh top cho phù hợp với vị trí bạn muốn */
-    left: 650px;
+    left: 600px;
     /* Điều chỉnh left cho phù hợp với vị trí bạn muốn */
     z-index: 1;
     /* Để đặt lớp trên schedule-box */
     padding: 8px 15px;
-    /* Tăng padding để làm cho thanh lựa chọn to hơn */
-    border-radius: 20px;
-    /* Đặt border-radius để làm tròn góc */
 }
+#view-schedule-button {
+    background-color: rgb(87, 176, 231);
+    padding: 3px 7px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* Hiệu ứng màu nền thay đổi */
+    color: white;
+    font-size: 13px;
+}
+
+
+#view-schedule-button:hover {
+    background-color:rgb(31, 147, 189); 
+}
+
+#add-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#add-box input {
+    width: 48%; /* Adjust the width as needed */
+    margin-bottom: 10px;
+}
+
 
 .semester-select {
     position: absolute;
-    top: 50px;
-    /* Điều chỉnh top cho phù hợp với vị trí bạn muốn */
-    left: 650px;
-    /* Điều chỉnh left cho phù hợp với vị trí bạn muốn */
-    z-index: 1;
-    /* Để đặt lớp trên schedule-box */
-    padding: 8px 15px;
-    /* Tăng padding để làm cho thanh lựa chọn to hơn */
-    border-radius: 20px;
-    /* Đặt border-radius để làm tròn góc */
+     top: 70px;
+     /* Điều chỉnh top cho phù hợp với vị trí bạn muốn */
+     left: 600px;
+     /* Điều chỉnh left cho phù hợp với vị trí bạn muốn */
+     z-index: 1;
+     /* Để đặt lớp trên schedule-box */
+     padding: 8px 15px;
 }

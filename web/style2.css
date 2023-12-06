@@ -1,14 +1,31 @@
 .semester-select2 {
     position: absolute;
-    top: 50px; 
-    left: 600px; 
-    z-index: 1; 
-    padding: 8px 15px; 
-    border-radius: 20px; 
+     top: 70px;
+     /* Điều chỉnh top cho phù hợp với vị trí bạn muốn */
+     left: 600px;
+     /* Điều chỉnh left cho phù hợp với vị trí bạn muốn */
+     z-index: 1;
+     /* Để đặt lớp trên schedule-box */
+     padding: 8px 15px;
 }
 
-/* Tùy chỉnh kiểu cho các cột cụ thể nếu cần */
-/* Ví dụ: Đặt kiểu cho cột "Ghi chú" */
+
+#view-result-button
+{
+    background-color: rgb(87, 176, 231);
+    padding: 3px 7px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* Hiệu ứng màu nền thay đổi */
+    color: white;
+    font-size: 13px;
+}
+#view-result-button:hover
+{
+    background-color:rgb(31, 147, 189); 
+}
 .content {
     display: flex;
     justify-content: center;
@@ -17,6 +34,7 @@
 }
 
 .result_schedule-box {
+    display: block;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -24,12 +42,12 @@
     width: 90%;
     max-width: 800px;
     text-align: center;
-    height: 400px; 
+    height:  450px; 
     overflow-y: scroll;
     margin-left: 240px; 
-    display:none;
-    margin-top: 0px;
+    margin-top: 20px;
 }
+
 
 h2 {
     color: lightseagreen ;
@@ -37,12 +55,15 @@ h2 {
 
 .result_schedule {
     margin-top: 20px;
+
    
 }
 
+
+
 .result_schedule-header {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     font-weight: bold;
     background-color: #f2f2f2;
     padding: 10px;
@@ -50,21 +71,32 @@ h2 {
 }
 
 .result_schedule-row {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-   
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        overflow-wrap: break-word;
+
 }
+.result-item {
+    margin-bottom: 20px; /* Adjust the bottom margin as needed */
+    padding: 10px; /* Add padding if needed */
+    border: 1px solid #ddd; /* Add a border for better separation (optional) */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Display items in a column */
+}
+
+.result_schedule-row-item span {
+    margin-bottom: 5px; /* Adjust the bottom margin for each span */
+}
+
 
 .result_schedule-row:last-child {
     border-bottom: none;
 }
 
-.result_schedule-row span {
-    padding: 5px;
-    overflow-wrap: break-word;
-}
+
 /*course-handbook*/
 .content1 {
     display: flex;
@@ -81,12 +113,13 @@ h2 {
     width: 90%;
     max-width: 800px;
     text-align: center;
-    height: 400px; 
+    height: 500px; 
     overflow-y: scroll;
     margin-left: 240px; 
     display:block;
     margin-top: 0px;
 }
+
 
 h2 {
     color: lightseagreen;
@@ -97,19 +130,38 @@ h2 {
    
 }
 
-.course_handbook-header {
+.row {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: bold;
-    background-color: #f2f2f2;
-    padding: 10px;
-    border-radius: 5px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px; /* Để tạo khoảng cách giữa các cột */
+    border: 1px solid #dddddd;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
 }
 
+.cell {
+    padding: 10px;
+    text-align: center ;
+    box-sizing: border-box; /* Để padding không làm tăng kích thước của ô */
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+
+
+.course_handbook-header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+}
 .course_handbook-row {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    padding: 30px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -118,12 +170,14 @@ h2 {
 }
 
 .course_handbook-row span {
-    padding: 5px;
+    padding: 10px;
     overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
 }
 /* CSS cho phần feedback-container */
 .feedback-container {
-    background-color: #f5f5f5;
+    background-color: rgb(151, 205, 255);
     border: 1px solid #ccc;
     padding: 20px;
     margin: 20px;
@@ -141,7 +195,7 @@ h2 {
 
 .feedback-container h2 {
     font-size: 18px;
-    color: #555;
+    color: #ffffff;
     margin-bottom: 30px;
 }
 
@@ -161,7 +215,7 @@ h2 {
 .feedback-container select, .feedback-container textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(49, 94, 119);
     border-radius: 5px;
     font-size: 16px;
 }
@@ -182,7 +236,7 @@ h2 {
 }
 /*css cho quên mật khẩu*/
 .forgot-password-container {
-    background-color: #f5f5f5;
+    background-color: rgb(151, 205, 255);
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
@@ -199,7 +253,7 @@ h2 {
 
 .forgot-password-container p {
     font-size: 16px;
-    color: #555;
+    color: #ebebeb;
     margin-bottom: 20px;
 }
 
